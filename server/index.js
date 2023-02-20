@@ -3,8 +3,7 @@ const cors = require("cors")
 const mongoose = require("mongoose");
 const bodyparser = require("body-parser")
 const dotenv = require("dotenv")
-const multer = require("multer-s3")
-const aws = require("aws")
+
 const app = express();
 const helmet = require("helmet");
 dotenv.config()
