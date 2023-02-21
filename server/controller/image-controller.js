@@ -42,7 +42,7 @@ export const postImage = async(req,res) => {
         const image = new Image({
             label: req.body.label,
             imagePath: req.file.location,
-            owner: req.user._id
+            owner: req.body.owner
         })
         const result = await image.save()
         res.status(200).send({

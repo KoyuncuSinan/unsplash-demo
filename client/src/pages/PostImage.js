@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from "react";
 import {useNavigate} from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 export default function PostImage(){
     const [isLogin, setIsLogin] = useState(false);
@@ -12,9 +13,11 @@ export default function PostImage(){
     const handleSubmit = async (e) => {
         e.preventDefault();
         const token = localStorage.getItem("token")
+        const userId = jwt_decode(token).id
         const formData = new FormData();
         formData.append("label",label);
         formData.append("imagePath",imagePath)
+        formData.append("owner",userId)
         const res = await fetch("http://localhost:3001/post",{
             method: "POST",
             headers:{
