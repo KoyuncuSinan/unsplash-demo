@@ -1,20 +1,24 @@
-const express = require("express")
-const cors = require("cors")
-const mongoose = require("mongoose");
-const bodyparser = require("body-parser")
-const dotenv = require("dotenv")
+import express from "express"
+import cors from "cors"
+import mongoose from "mongoose"
+import bodyParser from "body-parser"
+import * as dotenv from "dotenv"
+import authRoute from "./route/auth-route.js";
+import imageRoute from "./route/image-route.js"
+import helmet from "helmet"
 
 const app = express();
-const helmet = require("helmet");
 dotenv.config()
 
 app.use(cors());
 app.use(helmet());
+app.use(helmet.crossOriginResourcePolicy({policy: "cross-origin"}))
 app.use(express.json());
 app.use(helmet.crossOriginResourcePolicy({policy: "cross-origin"}));
-app.use(bodyparser.json({limit: "30mb", extended:true}));
-app.use(bodyparser.urlencoded({limit: "30mb"}));
-
+app.use(bodyParser.json({limit: "30mb", extended:true}));
+app.use(bodyParser.urlencoded({limit: "30mb"}));
+app.use(authRoute)
+app.use(imageRoute)
 
 
 
