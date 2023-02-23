@@ -45,7 +45,13 @@ export const postImage = async(req,res) => {
             owner: req.body.owner
         })
         const result = await image.save()
+        const user = await User.findOneAndUpdate(
+            {_id: req.body.owner},
+            {$push: {posts: result._id}},
+            {new:true}
+        )
         res.status(200).send({
+            user:user,
             _id: result._id,
             label: result.label,
             imagePath: result.imagePath,
@@ -58,7 +64,7 @@ export const postImage = async(req,res) => {
 
 export const getImages = async(req,res) => {
     try{
-        const images = Image.find();
+        const images = await Image.find();
         res.status(200).json(images);
     }catch(err){
         return res.status(400).json({msg: "Couldn't get the data. Try again later."})
@@ -82,10 +88,11 @@ export const deleteImage = async(req,res) => {
     const imageId = mongoose.Types.ObjectId(req.params.id);
     try{
         const image = await Image.findById(imageId);
+        const user = await User.findById(mongoose.Types.ObjectId(image.owner))
         if(!image){
             return res.status(404).json({msg: "Image not found"});
         }
-        if (image.owner !== req.user._id){
+        if (image.owner !== user){
             return res.status(403).json({msg: "You don't have the permission to delete this image."})
         }
         await image.deleteOne();
@@ -94,3 +101,4 @@ export const deleteImage = async(req,res) => {
         return res.status(500).json({error:err.message});
     }
 }
+
