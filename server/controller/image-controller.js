@@ -86,19 +86,22 @@ export const getSingleImage = async(req,res) => {
 
 export const deleteImage = async(req,res) => {
     const imageId = mongoose.Types.ObjectId(req.params.id);
-    try{
-        const image = await Image.findById(imageId);
-        const user = await User.findById(mongoose.Types.ObjectId(image.owner))
-        if(!image){
-            return res.status(404).json({msg: "Image not found"});
-        }
-        if (image.owner !== user){
-            return res.status(403).json({msg: "You don't have the permission to delete this image."})
-        }
+    try {
+      const image = await Image.findById(imageId);
+      const user = await User.findById(mongoose.Types.ObjectId(image.owner));
+      if (!image) {
+        return res.status(404).json({ msg: "Image not found" });
+      }
+      if (user && image.owner.equals(user._id)) {
         await image.deleteOne();
-        res.status(200).json({msg: "Image deleted successfully."});
-    }catch(err){
-        return res.status(500).json({error:err.message});
+        res.status(200).json({ msg: "Image deleted successfully." });
+      } else {
+        return res
+          .status(403)
+          .json({ msg: "You don't have the permission to delete this image." });
+      }
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
     }
-}
+  };
 
