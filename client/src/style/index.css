@@ -1,0 +1,108 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Alegraya", sans-serif;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    
+}
+
+.title-input{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 1rem 8rem;
+}
+.title-input input{
+    margin-left: 2rem;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px grey solid;
+}
+
+.logo{
+    width: 5.2rem;
+    height: 3rem;
+}
+
+.signup{
+    display: flex;
+    margin: 0 8rem;
+    align-items: center;
+}
+
+.signup a{
+    margin-left: 3rem;
+    justify-content: flex-end;
+}
+a,.title-input h3, img:hover{
+    cursor: pointer;
+}
+
+.add-image{
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 6rem;
+    background-color: rgb(59, 181, 59);
+    color: white;
+    font-weight: 700;
+    text-align: center;
+}
+
+.add-image:hover{
+    background-color: rgb(82, 207, 82);
+}
+
+.register:hover{
+    text-decoration: underline;
+}
+
+#logout{
+    margin-right: 4rem;
+}
+
+#homepage{
+    max-width: 90%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin: 3rem auto;
+    justify-content: center;
+}
+
+.image{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.image img{
+    width: 85%;
+    height: 95%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.label{
+    color: white;
+    font-weight: 700;
+    font-style: italic;
+    position: absolute;
+    top: 75%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+
+.image:hover .label{
+    visibility: visible;
+    opacity: 0.9;
+}

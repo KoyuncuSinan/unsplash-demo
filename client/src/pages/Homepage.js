@@ -28,7 +28,7 @@ export default function Homepage(){
     }, [])
 
     return(
-        <main>
+        <main id="homepage">
             {images.length >= 1 ? (images.map((image,index) => (
                 <a key={image._id} onClick={() => navigate(`/${image._id}`)} className = "image">
                     <img src = {image.imagePath}></img>

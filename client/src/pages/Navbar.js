@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
+import logo from "../style/camera.png"
 
 export default function Navbar(){
     const [isLogin, setIsLogin] = useState(false);
@@ -21,14 +22,17 @@ export default function Navbar(){
 
     return(
         <nav>
-            <h3 onClick={() => navigate("/")}>My Unsplash Demo</h3>
+        <div className="title-input">
+            <img src = {logo} alt="logo" className="logo" onClick={() => navigate("/")}/>
+            <h3 onClick={() => navigate("/")}>My Unsplash</h3>
             <input placeholder="Search by name" type= "text"></input>
-            <a onClick={() => navigate("/post")}>Add an Image</a>
+        </div>
+            <a onClick={() => navigate("/post")} className= "add-image">Add Image</a>
             {isLogin ? (
-                <a onClick={logout}>Logout</a>
+                <a onClick={logout} className= "register" id="logout">Logout</a>
             ): <div className="signup">
-                <a onClick={() => navigate("/signup")}>Signup</a>
-                <a onClick={() => navigate("/login")}>Login</a>
+                <a onClick={() => navigate("/signup")} className= "register">Signup</a>
+                <a onClick={() => navigate("/login")} className= "register">Login</a>
             </div>}
         </nav>
     )

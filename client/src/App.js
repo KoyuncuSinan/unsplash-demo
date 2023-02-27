@@ -6,6 +6,7 @@ import PostImage from "../src/pages/PostImage"
 import Navbar from "../src/pages/Navbar"
 import Homepage from "../src/pages/Homepage"
 import ImageSingle from "../src/pages/ImageSingle"
+import "../src/style/index.css"
 
 export default function App(){
     return(
