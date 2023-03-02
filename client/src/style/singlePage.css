@@ -1,0 +1,55 @@
+#singlePage{
+    margin-top: 8rem;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+
+}
+
+#single-container{
+    max-width: 50%;
+    max-height: 50%;
+    margin: 0 auto;
+}
+.singleImage{
+    max-width: 50%;
+    max-width: 50%;
+}
+
+.singleImage:hover{
+    cursor: default;
+}
+
+.pageLabel{
+    max-width: 50%;
+    margin: 1rem auto;
+}
+
+#single-buttons{
+    display: flex;
+}
+
+.delete-button{
+    border-radius: 8px;
+    padding: 0.4rem;
+    max-width: 20%;
+    background-color: rgb(241, 45, 45);
+    color: white;
+    font-weight: 700;
+    border: none;
+    margin: 2rem auto;
+    cursor: pointer;
+}
+
+#download-button{
+    border-radius: 8px;
+    padding: 0.4rem;
+    max-width: 20%;
+    background-color: rgb(59, 181, 59);
+    color: white;
+    font-weight: 700;
+    margin: 2rem auto;
+    border: none;
+    cursor: pointer;
+}

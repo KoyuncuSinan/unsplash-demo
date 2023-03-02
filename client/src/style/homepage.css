@@ -1,15 +1,10 @@
-#homepage{
+
+/* #homepage{
     max-width: 90%;
     display: grid;
-    /* grid-template-rows: [row1] 40% [row2] 70% [row3] 40% [row4] 70% [row5] 60% [row6] 30% [row7] 55% [row8] 40%;
-    grid-template-columns: [col1] 15% [col2] 25% [col3] 40% [col4] 35% [col5] 25%; */
-    margin: 0 auto;
     margin-top: 2rem;
     grid-template-columns: repeat(3,1fr);
-
-
-    
-
+    margin-top: 10rem;
 }
 
 .image{
@@ -18,36 +13,78 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    cursor: default;
+    box-sizing: border-box;
 
     
 }
 
 .image img{
     display: block;
-    max-width: 80%;
-    height: auto;
-    object-fit: cover;
+    max-width: 85%;
     border-radius: 20px;
 
 }
 .label{
     color: white;
-    font-weight: 700;
+    font-weight: 400;
+    font-size: 1.2em;
     font-style: italic;
     position: absolute;
-    top: 75%;
-    left: 40%;
+    width: 40%;
+    top: 55%;
     transform: translate(-50%, -50%);
     opacity: 0;
     visibility: hidden;
-}
+    cursor: pointer;
+} */
+
+/* .masonry {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px; /* add negative margin to offset the padding on the image elements */
+
+  
+  /* .image {
+    flex: 1 0 calc(33.33% - 20px); /* set the width of each flex item to 33.33% minus the grid gap */
+    /* margin: 10px; add padding to create a gap between images */
+    /* position: relative;
+  }
+  
+  .homeImage {
+    width: 100%;
+    height: auto;
+    display: block;
+  } */
+  
+  /* .label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+  }
 
 
-
-.image:hover .label{
+.homeImage:hover + .label{
     visibility: visible;
     opacity: 0.9;
 }
 
-.image:hover .home-image{
-    filter: brightness(70%); }
+.label:hover{
+    visibility: visible;
+    opacity: 0.9;
+}
+
+.homeImage:hover{
+    filter: brightness(70%); 
+} */
+/* 
+.label:hover .homeImage{
+    filter: brightness(70%);
+} */

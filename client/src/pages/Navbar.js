@@ -25,7 +25,7 @@ export default function Navbar(){
         <div className="title-input">
             <img src = {logo} alt="logo" className="logo" onClick={() => navigate("/")}/>
             <h3 onClick={() => navigate("/")}>My Unsplash</h3>
-            <input placeholder="Search by name" type= "text"></input>
+            <input placeholder="Search by name" type= "search"></input>
         </div>
             <a onClick={() => navigate("/post")} className= "add-image">Add Image</a>
             {isLogin ? (

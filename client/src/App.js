@@ -8,6 +8,7 @@ import Homepage from "../src/pages/Homepage"
 import ImageSingle from "../src/pages/ImageSingle"
 import "../src/style/index.css"
 import "../src/style/homepage.css"
+import "../src/style/singlePage.css"
 
 export default function App(){
     return(

@@ -57,14 +57,17 @@ export default function ImageSingle() {
   };
 
   return (
-    <main>
+    <main id="singlePage">
       {imagePage.length !== 0 ? (
-        <div key={imagePage._id}>
-          <img src={imagePage.imagePath}></img>
-          <h2 className="label">{imagePage.label}</h2>
-          {imagePage.owner === userId && (
-            <button onClick={deleteImage}>Delete Image</button>
-          )}
+        <div key={imagePage._id} id= "single-container">
+          <h2 className="pageLabel">{imagePage.label}</h2>
+          <img src={imagePage.imagePath} className="singleImage"></img>
+          <div id= "single-buttons">
+            <button id="download-button">Download Image</button>
+            {imagePage.owner === userId && (
+              <button className="delete-button" onClick={deleteImage}>Delete Image</button>
+            )}
+          </div>
         </div>
       ) : (
         "Loading"

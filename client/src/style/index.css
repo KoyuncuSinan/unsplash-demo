@@ -5,12 +5,21 @@ body{
 }
 
 nav{
-    max-width: 90%;
-    min-height: 90%;
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
+    /* max-width: 90%;
+    min-height: 90%; */
+    position: fixed;
     justify-content: space-evenly;
+    display: flex;
+    max-width: 90%;
+    max-width: 100%;
+    align-items: center;
+    top: 0;
+    margin: 0 auto;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 900;
+    
     
 }
 
@@ -69,4 +78,8 @@ a,.title-input h3, img:hover{
 
 #logout{
     margin-right: 4rem;
+}
+
+.form{
+    margin-top: 10rem;
 }
