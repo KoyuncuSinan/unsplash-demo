@@ -1,10 +1,12 @@
 import React, {useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../style/camera.png"
+import SearchBar from "../components/SearchBar";
 
 export default function Navbar(){
     const [isLogin, setIsLogin] = useState(false);
     const navigate = useNavigate();
+    const [images, setImages] = useState([])
 
     useEffect(() => {
         const token = localStorage.getItem("token")
@@ -12,6 +14,28 @@ export default function Navbar(){
             setIsLogin(token)
         }
     },[localStorage.getItem("token")]);
+
+    useEffect(() => {
+        const getImages = async () => {
+            try{
+                const res = await fetch("http://localhost:3001",{
+                    method: "GET",
+                    headers:{
+                        "Content-Type": "application/json",
+                    }
+                });
+                const data = await res.json();
+                if(data){
+                    console.log(data)
+                    setImages(data)
+                }
+            } catch(err){
+                console.log(err);
+                return err;
+            }
+        };
+        getImages();
+    }, [])
 
     const logout = () => {
         localStorage.removeItem("token");
@@ -25,7 +49,7 @@ export default function Navbar(){
         <div className="title-input">
             <img src = {logo} alt="logo" className="logo" onClick={() => navigate("/")}/>
             <h3 onClick={() => navigate("/")}>My Unsplash</h3>
-            <input placeholder="Search by name" type= "search"></input>
+            <SearchBar placeholder="Enter a label name" data= {images}/>
         </div>
             <a onClick={() => navigate("/post")} className= "add-image">Add Image</a>
             {isLogin ? (
@@ -35,5 +59,6 @@ export default function Navbar(){
                 <a onClick={() => navigate("/login")} className= "register">Login</a>
             </div>}
         </nav>
+
     )
 }

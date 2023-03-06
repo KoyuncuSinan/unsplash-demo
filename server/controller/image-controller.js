@@ -27,7 +27,7 @@ const storage = multerS3({
 })
 
 const filefilter = (req,file,cb) => {
-    if(file.mimetype === "image/jpeg" || file.mimetype === "image/jpg" || file.mimetype === "image/webp"){
+    if(file.mimetype === "image/jpeg" || file.mimetype === "image/jpg" || file.mimetype === "image/webp" || file.mimetype === "image/png"){
         cb(null,true)
     } else {
         cb(null,false)

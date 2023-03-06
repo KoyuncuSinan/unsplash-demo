@@ -50,6 +50,7 @@ export default function PostImage(){
         <>
             {isLogin ? (
                 <form onSubmit={handleSubmit} className= "form">
+                <h2>Submit Your Image</h2>
                     <div className="inputs">
                         <label htmlFor="label">Label for your image</label>
                         <input
@@ -72,7 +73,10 @@ export default function PostImage(){
                     </div>
                     <button type="submit">Submit</button>
                 </form>
-            ) : "Please login to submit an image"}
+            ) : <div className="signup-error">
+                    <h2>Login Required</h2>
+                    <p>You need to login to submit an image</p>
+                </div>}
         </>
     )
 

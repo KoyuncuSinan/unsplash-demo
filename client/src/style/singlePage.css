@@ -8,13 +8,20 @@
 }
 
 #single-container{
-    max-width: 50%;
-    max-height: 50%;
+    max-width: 70%;
+    max-height: 70%;
     margin: 0 auto;
 }
+
+.icon-container{
+    max-width: 50%;
+    max-width: 50%;
+    margin: 0 auto;
+}
+
 .singleImage{
-    max-width: 50%;
-    max-width: 50%;
+    max-width: 100%;
+    max-width: 100%;
 }
 
 .singleImage:hover{
@@ -26,30 +33,7 @@
     margin: 1rem auto;
 }
 
-#single-buttons{
-    display: flex;
-}
 
-.delete-button{
-    border-radius: 8px;
-    padding: 0.4rem;
-    max-width: 20%;
-    background-color: rgb(241, 45, 45);
-    color: white;
-    font-weight: 700;
-    border: none;
-    margin: 2rem auto;
+.deleteIcon:hover{
     cursor: pointer;
-}
-
-#download-button{
-    border-radius: 8px;
-    padding: 0.4rem;
-    max-width: 20%;
-    background-color: rgb(59, 181, 59);
-    color: white;
-    font-weight: 700;
-    margin: 2rem auto;
-    border: none;
-    cursor: pointer;
-}
+  }

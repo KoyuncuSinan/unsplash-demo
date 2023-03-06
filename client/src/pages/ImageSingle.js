@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import jwt_decode from "jwt-decode";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function ImageSingle() {
   const [imagePage, setImagePage] = useState("");
@@ -9,10 +10,12 @@ export default function ImageSingle() {
   const { id } = useParams();
 
   const token = localStorage.getItem("token");
+  let userId = null
+  if (token){
+    userId = jwt_decode(token).id;
+
+  }
   
-
-  const userId = jwt_decode(token).id;
-
   useEffect(() => {
     if (token) {
         setIsLogged(true);
@@ -61,12 +64,15 @@ export default function ImageSingle() {
       {imagePage.length !== 0 ? (
         <div key={imagePage._id} id= "single-container">
           <h2 className="pageLabel">{imagePage.label}</h2>
+          <div className="icon-container">
           <img src={imagePage.imagePath} className="singleImage"></img>
-          <div id= "single-buttons">
-            <button id="download-button">Download Image</button>
-            {imagePage.owner === userId && (
-              <button className="delete-button" onClick={deleteImage}>Delete Image</button>
+
+            {token && imagePage.owner === userId && (
+                <DeleteIcon onClick={deleteImage} className="deleteIcon"/>  
+
+              
             )}
+
           </div>
         </div>
       ) : (

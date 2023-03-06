@@ -9,6 +9,9 @@ import ImageSingle from "../src/pages/ImageSingle"
 import "../src/style/index.css"
 import "../src/style/homepage.css"
 import "../src/style/singlePage.css"
+import "../src/style/searchbar.css"
+import "../src/style/postImage.css"
+import "../src/style/form.css"
 
 export default function App(){
     return(

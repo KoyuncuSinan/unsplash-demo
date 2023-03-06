@@ -33,17 +33,7 @@ export default function Homepage(){
         };
         getImages();
     }, [])
-
-    //     <main id="homepage">
-    //         {images.length >= 1 ? (images.map((image,index) => (
-    //             <div key={image._id} className = "image">
-    //                 <img src = {image.imagePath} className="homeImage" onClick={() => navigate(`/${image._id}`)}  style={{gridColumnEnd:`span ${image.width > image.height ? 2:1}`, gridRowEnd: `span ${image.height > image.width ? 2 : 1}`}}></img>
-    //                 <h2 className="label">{image.label}</h2>
-    //             </div>
-    //         ))): "Loading"}
-    //     </main>
-    //
-
+    
     return(
         <Masonry
             breakpointCols={breakpointColumnsObj}
