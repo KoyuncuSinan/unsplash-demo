@@ -7,6 +7,8 @@ export default function Login(){
         password:"",
     })
 
+    const [errorMessage, setErrorMessage] = useState(null)
+
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -19,17 +21,20 @@ export default function Login(){
                 },
                 body: JSON.stringify(login),
             })
-            const data = await res.json();
             if(!res.ok){
-                throw new Error(res.statusText)
+                const errorData = await res.json()
+                setErrorMessage(errorData.msg)
+            }else{
+                const data = await res.json();
+                if(data){
+                    localStorage.setItem("token", data.token);
+                    console.log(data);
+                    setLogin(data)
+                    navigate("/post");
+                }
+
             }
 
-            if(data){
-                localStorage.setItem("token", data.token);
-                console.log(data);
-                setLogin(data)
-                navigate("/post");
-            }
 
 
         }catch(err){
@@ -40,6 +45,7 @@ export default function Login(){
 
     return(
         <form onSubmit={handleSubmit} className="form">
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
             <div className="inputs">
                 <label htmlFor="username">Username</label>
                 <input 

@@ -131,3 +131,8 @@ a,.title-input h3, img:hover{
     width: 100%;
   }
 
+.error-message{
+    color: red;
+    font-weight: 700;
+    
+}

@@ -6,6 +6,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 export default function ImageSingle() {
   const [imagePage, setImagePage] = useState("");
   const [isLogged, setIsLogged] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [isLoading, setIsLoading] = useState(true)
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -28,14 +30,22 @@ export default function ImageSingle() {
             "Content-Type": "application/json",
           },
         });
-        const data = await res.json();
-        if (data) {
-          console.log(data);
-          setImagePage(data);
+        if (!res.ok) {
+          const errorData = await res.json();
+          setErrorMessage(errorData.msg);
+        } else{
+          const data = await res.json();
+          if (data) {
+            console.log(data);
+            setImagePage(data);
+          }
+
         }
       } catch (err) {
         console.log(err);
-        return err;
+        setErrorMessage("An error occurred while fetching the image")
+      } finally {
+        setIsLoading(false);
       }
     };
     getImage();
@@ -59,8 +69,13 @@ export default function ImageSingle() {
     }
   };
 
+  if(isLoading){
+    return <div >Loading...</div>
+  }
+
   return (
     <main id="singlePage">
+      
       {imagePage.length !== 0 ? (
         <div key={imagePage._id} id= "single-container">
           <h2 className="pageLabel">{imagePage.label}</h2>
@@ -75,9 +90,9 @@ export default function ImageSingle() {
 
           </div>
         </div>
-      ) : (
-        "Loading"
-      )}
+      ) : <h2 className="error-message">Oops! The image you're looking for doesn't exist.</h2>
+        
+      }
     </main>
   );
 }

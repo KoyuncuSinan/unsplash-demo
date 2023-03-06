@@ -20,6 +20,8 @@ export const signup = async (req,res) => {
             return res.status(409).json({msg: "Username already exist."});
         }else if(password.length > 20 || password.length < 5){
             return res.status(409).json({msg: "Password should be between 5-20 characters."})
+        }else if(!email.includes("@")){
+            return res.status(409).json({msg:"Email should be in correct format."})
         }
 
         const salt = await bcrypt.genSalt();

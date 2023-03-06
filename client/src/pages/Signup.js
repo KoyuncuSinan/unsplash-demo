@@ -9,6 +9,7 @@ export default function Signup(){
         password: "",
     })
     
+    const [errorMessage, setErrorMessage] = useState(null)
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -22,12 +23,19 @@ export default function Signup(){
                     body: JSON.stringify(signupForm),
                 })
 
-                const data = await res.json()
-                console.log(data);
-                setSignupForm(data);
-                navigate("/login")
+                if(!res.ok){
+                    const errorData = await res.json();
+                    setErrorMessage(errorData.msg)
+                }else{
+                    const data = await res.json()
+                    console.log(data);
+                    setSignupForm(data);
+                    navigate("/login")
+
+                }
             } catch(err){
                 console.log(err)
+                setErrorMessage("An error occurred while signing up.")
                 return err;
             }
         }
@@ -35,6 +43,7 @@ export default function Signup(){
     return(
         <form onSubmit={handleSubmit} className= "form">
             <h1>Signup</h1>
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
             <div className="inputs">
                 <label htmlFor="username">Username</label>
                 <input type= "text" name="username" id="username" onChange={(e) => setSignupForm({...signupForm, [e.target.name]: e.target.value})} value = {signupForm.username}></input>
