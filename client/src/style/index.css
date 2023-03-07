@@ -156,6 +156,49 @@ a,.title-input h3, img:hover{
 .loader{
 width: 80%;
 margin: 0 auto;
+}
 
+
+@media(max-width: 950px){
+  .title-input{
+    margin: 1rem 5rem;
+  }
+  .signup{
+    flex-direction: column;
+    margin-right: 6.2rem;
+    margin-top: 0.5rem;
+  }
   
+  .register{
+    margin-bottom: 0.3rem;
+  }
+}
+@media(max-width: 450px){
+  .title-input{
+    margin: 1rem 5rem;
+  }
+  .title-input h3{
+    display: none;
+  }
+  .title-input .logo{
+    width: 30%;
+    height: 15%;
+  }
+
+  .add-image{
+    font-size: 12px;
+    padding: 1rem 1.2rem;
+  }
+  .signup{
+    flex-direction: column;
+    margin-right: 6.2rem;
+    margin-top: 0.3rem;
+  }
+  .register{
+    margin-bottom: 0.3rem;
+  }
+  #logout{
+    margin-left: 2rem;
+    margin-right: 6rem;
+  }
 }

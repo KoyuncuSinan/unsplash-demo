@@ -4,10 +4,9 @@ import Signup from "../src/pages/Signup"
 import Login from "../src/pages/Login";
 import PostImage from "../src/pages/PostImage"
 import Navbar from "../src/pages/Navbar"
-import Homepage from "../src/pages/Homepage"
+import Homepage from "./pages/Homepage";
 import ImageSingle from "../src/pages/ImageSingle"
 import "../src/style/index.css"
-import "../src/style/homepage.css"
 import "../src/style/singlePage.css"
 import "../src/style/searchbar.css"
 import "../src/style/postImage.css"

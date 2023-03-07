@@ -34,7 +34,7 @@ export default function SearchBar({ placeholder, data }) {
           onChange={handleFilter}
         />
         <div className="searchIcon">
-          {filteredData.length === 0 ? (
+          {wordEntered.length === 0 ? (
             <SearchIcon />
           ) : (
             <CloseIcon id="clearBtn" onClick={clearInput} />
