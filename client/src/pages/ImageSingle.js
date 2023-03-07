@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import DeleteIcon from "@mui/icons-material/Delete";
 import errorImage from "../style/detective-dog.jpg";
+import { TailSpin } from "react-loader-spinner";
 
 export default function ImageSingle() {
   const [imagePage, setImagePage] = useState("");
@@ -60,6 +61,7 @@ export default function ImageSingle() {
       });
       if (res.ok) {
         console.log("Image deleted successfully.");
+        alert("Image deleted successfully.");
         navigate("/");
       }
     } catch (err) {
@@ -68,13 +70,20 @@ export default function ImageSingle() {
     }
   };
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <main id="singlePage">
-      {imagePage.length !== 0 ? (
+      {isLoading ? (
+        <TailSpin
+          height="80"
+          width="80"
+          color="#4fa94d"
+          ariaLabel="tail-spin-loading"
+          radius="1"
+          wrapperStyle={{}}
+          wrapperClass="loader"
+          visible={true}
+        />
+      ) : imagePage.length !== 0 ? (
         <div key={imagePage._id} id="single-container">
           <h2 className="pageLabel">{imagePage.label}</h2>
           <div className="icon-container">

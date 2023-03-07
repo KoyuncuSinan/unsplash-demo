@@ -149,3 +149,13 @@ a,.title-input h3, img:hover{
     width: 50%;
     margin-top: 5rem;
 }
+
+
+/* Loading */
+
+.loader{
+width: 80%;
+margin: 0 auto;
+
+  
+}

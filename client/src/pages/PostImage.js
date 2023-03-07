@@ -18,22 +18,33 @@ export default function PostImage(){
         formData.append("label",label);
         formData.append("imagePath",imagePath)
         formData.append("owner",userId)
-        const res = await fetch("http://localhost:3001/post",{
-            method: "POST",
-            headers:{
-                Authorization: `Bearer ${token}`
-            },
-            body: formData
-        })
-        console.log(res);
-        if(res.status === 200 || res.status === 201){
-            const data = await res.json();
-            console.log(data);
-            setLabel(data.label)
-            setImagePath("")
-            navigate("/");
-        }else{
-            throw new Error(res.statusText);
+
+        try{
+            const res = await fetch("http://localhost:3001/post",{
+                method: "POST",
+                headers:{
+                    Authorization: `Bearer ${token}`
+                },
+                body: formData
+            })
+            if(!res.ok){
+                const errorData = await res.json()
+                alert(errorData.msg)
+            }else{
+                console.log(res);
+                if(res.status === 200 || res.status === 201){
+                    const data = await res.json();
+                    console.log(data);
+                    setLabel(data.label)
+                    setImagePath("")
+                    navigate("/");
+    
+            }
+
+        }
+        }catch(err){
+           console.log(err);
+           return err;
         }
 
     };

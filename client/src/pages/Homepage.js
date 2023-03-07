@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Masonry from "react-masonry-css";
+import { TailSpin } from "react-loader-spinner";
 
 export default function Homepage() {
   const [images, setImages] = useState([]);
@@ -47,8 +48,11 @@ export default function Homepage() {
       columnClassName="my-masonry-grid_column"
     >
       {errorMessage && <h2 className="error-message">{errorMessage}</h2>}
-      {images.length >= 1
-        ? images.map((image, index) => (
+      {images.length >= 1 ? (
+        images
+          .slice(0)
+          .reverse()
+          .map((image, index) => (
             <div key={image._id} className="image">
               <img
                 src={image.imagePath}
@@ -58,7 +62,18 @@ export default function Homepage() {
               <h2 className="label">{image.label}</h2>
             </div>
           ))
-        : "Loading"}
+      ) : (
+          <TailSpin
+            height="80"
+            width="80"
+            color="#4fa94d"
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{}}
+            wrapperClass= "loader"
+            visible={true}
+          />
+      )}
     </Masonry>
   );
 }
