@@ -1,0 +1,39 @@
+#singlePage{
+    margin-top: 8rem;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+
+}
+
+#single-container{
+    max-width: 70%;
+    max-height: 70%;
+    margin: 0 auto;
+}
+
+.icon-container{
+    max-width: 50%;
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+.singleImage{
+    max-width: 100%;
+    max-width: 100%;
+}
+
+.singleImage:hover{
+    cursor: default;
+}
+
+.pageLabel{
+    max-width: 50%;
+    margin: 1rem auto;
+}
+
+
+.deleteIcon:hover{
+    cursor: pointer;
+  }

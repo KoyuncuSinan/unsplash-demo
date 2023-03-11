@@ -1,0 +1,204 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Alegraya", sans-serif;
+}
+
+nav{
+    /* max-width: 90%;
+    min-height: 90%; */
+    position: fixed;
+    justify-content: space-evenly;
+    display: flex;
+    max-width: 100%;
+    max-height: 10%;
+    align-items: center;
+    top: 0;
+    margin: 0 auto;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 900;
+    
+    
+}
+
+.title-input{
+    width: 45%; 
+    display: flex;
+    align-items: center;
+    margin: 1rem 10rem;
+}
+.title-input input{
+    width: 30%;
+    margin-left: 2rem;
+    margin-right: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px grey solid;
+}
+
+.logo{
+    width: 14%;
+    height: 8%;
+}
+
+.signup{
+    display: flex;
+    /* margin: 0 8rem; */
+    align-items: center;
+    /* margin-left: 4%; */
+}
+
+.signup a{
+    margin-left: 3rem;
+}
+
+a,.title-input h3, img:hover{
+    cursor: pointer;
+}
+
+.add-image{
+    border-radius: 10px;
+    padding: 1rem;
+    max-width: 6%;
+    background-color: rgb(59, 181, 59);
+    color: white;
+    font-weight: 700;
+    text-align: center;
+}
+
+.add-image:hover{
+    background-color: rgb(82, 207, 82);
+}
+
+.register:hover{
+    text-decoration: underline;
+}
+
+#logout{
+    margin-right: 4rem;
+}
+
+.form{
+    margin-top: 10rem;
+}
+
+.my-masonry-grid {
+    /* display: -webkit-box;
+    display: -ms-flexbox;  */
+    display: flex;
+    margin: 0 auto; /* gutter size offset */
+    width: 90%;
+    margin-top: 10rem
+  }
+  .my-masonry-grid_column {
+    padding-left: 30px; /* gutter size */
+    background-clip: padding-box;
+  }
+  
+  /* Style your items */
+  .my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
+    margin-bottom: 30px;
+  }
+
+  .image{
+    position: relative;
+  }
+  .label{
+    position: absolute;
+    bottom: 0;
+    left: 15rem;
+    width: 80%;
+    padding: 16px;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 400;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+}
+.homeImage:hover + .label{
+    visibility: visible;
+    opacity: 0.9;
+}
+.homeImage:hover{
+    filter: brightness(60%); 
+}
+  .homeImage{
+    width: 100%;
+  }
+
+.error-message{
+    color: rgb(178, 18, 18);
+    font-weight: 700;
+    
+}
+.image-error{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: 0rem auto;
+
+}
+
+.error-dog{
+    width: 50%;
+    margin-top: 5rem;
+}
+
+
+/* Loading */
+
+.loader{
+width: 80%;
+margin: 0 auto;
+}
+
+
+@media(max-width: 950px){
+  .title-input{
+    margin: 1rem 5rem;
+  }
+  .signup{
+    flex-direction: column;
+    margin-right: 6.2rem;
+    margin-top: 0.5rem;
+  }
+  
+  .register{
+    margin-bottom: 0.3rem;
+  }
+}
+@media(max-width: 450px){
+  .title-input{
+    margin: 1rem 5rem;
+  }
+  .title-input h3{
+    display: none;
+  }
+  .title-input .logo{
+    width: 30%;
+    height: 15%;
+  }
+
+  .add-image{
+    font-size: 12px;
+    padding: 1rem 1.2rem;
+  }
+  .signup{
+    flex-direction: column;
+    margin-right: 6.2rem;
+    margin-top: 0.3rem;
+  }
+  .register{
+    margin-bottom: 0.3rem;
+  }
+  #logout{
+    margin-left: 2rem;
+    margin-right: 6rem;
+  }
+}

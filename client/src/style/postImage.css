@@ -1,0 +1,9 @@
+.signup-error{
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 12rem;
+    text-align: center;
+}
+.signup-error h2{
+    font-size: 50px;
+}
