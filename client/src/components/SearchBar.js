@@ -47,7 +47,7 @@ export default function SearchBar({ placeholder, data }) {
             return (
               <a
                 className="dataItem"
-                href={`http://localhost:3000/${value._id}`}
+                href={`https://myunsplash-slcn.onrender.com/${value._id}`}
                 target="_blank"
               >
                 <p>{value.label}</p>
