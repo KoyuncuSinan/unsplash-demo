@@ -12,7 +12,7 @@ dotenv.config()
 
 app.use(
   cors({
-    origin: "https://myunsplash-slcn.onrender.com",
+    origin: "https://myunsplash-slcn.onrender.com/",
     credentials: true,
   })
 );
