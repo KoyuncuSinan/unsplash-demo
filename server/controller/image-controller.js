@@ -2,13 +2,14 @@ import Image from "../model/image-model.js";
 import User from "../model/User-model.js";
 import multerS3 from "multer-s3";
 import multer from "multer"
-import { S3 } from "@aws-sdk/client-s3";
+// import { S3 } from "@aws-sdk/client-s3";
+import AWS from "aws-sdk"
 import mongoose from "mongoose";
 import * as dotenv from "dotenv"
 
 dotenv.config()
 
-const s3 = new S3({
+const s3 = new AWS.S3({
     accessKeyId: process.env.S3_ACCESS_KEY,
     secretAccessKey: process.env.S3_SECRETACCESS_KEY,
     region: process.env.S3_BUCKET_REGION,
