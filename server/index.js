@@ -10,7 +10,7 @@ import helmet from "helmet"
 const app = express();
 dotenv.config()
 
-app.use(cors());
+app.use(cors("https://myunsplash-slcn.onrender.com/"));
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({policy: "cross-origin"}))
 app.use(
