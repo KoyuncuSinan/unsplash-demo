@@ -10,11 +10,7 @@ import helmet from "helmet"
 const app = express();
 dotenv.config()
 
-app.use(
-    cors({
-      origin: "https://myunsplash-rho.vercel.app",
-    })
-  );
+app.use(cors());
   app.use(helmet());
 app.use(express.json());
 app.use(bodyParser.json({limit: "30mb", extended:true}));
