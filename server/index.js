@@ -10,7 +10,9 @@ import helmet from "helmet"
 const app = express();
 dotenv.config()
 
+app.use(cors({origin:true,credentials: true}));
 
+app.use(helmet());
 app.use(express.json());
 app.use(bodyParser.json({limit: "30mb", extended:true}));
 app.use(bodyParser.urlencoded({limit: "30mb"}));
