@@ -10,8 +10,12 @@ import helmet from "helmet"
 const app = express();
 dotenv.config()
 
-app.use(cors({origin:true,credentials: true}));
-
+app.use(
+  cors({
+    origin: "https://myunsplash-slcn.onrender.com",
+    credentials: true,
+  })
+);
 app.use(helmet());
 app.use(express.json());
 app.use(bodyParser.json({limit: "30mb", extended:true}));
