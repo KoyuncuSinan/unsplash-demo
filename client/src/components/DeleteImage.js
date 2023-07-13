@@ -8,7 +8,7 @@ const DeleteImage = ({id}) => {
     const handleDeleteClick = async() => {
         setLoading(true);
         try{
-            const res = await fetch(`http://localhost:3001/${id}`,{
+            const res = await fetch(`https://my-unsplash-five.vercel.app/${id}`,{
                 method: "DELETE",
             });
             if(!res.ok){
