@@ -15,7 +15,7 @@ export default function Signup(){
     const handleSubmit = async (e) => {
         e.preventDefault()
             try{
-                const res = await fetch("https://my-unsplash-five.vercel.app/signup",{
+                const res = await fetch("https://my-unsplash-oulx.onrender.com/signup",{
                     method: "POST",
                     headers:{
                         "Content-Type": "application/json",

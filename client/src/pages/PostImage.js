@@ -20,7 +20,7 @@ export default function PostImage(){
         formData.append("owner",userId)
 
         try{
-            const res = await fetch("https://my-unsplash-five.vercel.app/post",{
+            const res = await fetch("https://my-unsplash-oulx.onrender.com/post",{
                 method: "POST",
                 headers:{
                     Authorization: `Bearer ${token}`

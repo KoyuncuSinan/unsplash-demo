@@ -17,7 +17,7 @@ export default function Homepage() {
   useEffect(() => {
     const getImages = async () => {
       try {
-        const res = await fetch("https://my-unsplash-five.vercel.app", {
+        const res = await fetch("https://my-unsplash-oulx.onrender.com", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
