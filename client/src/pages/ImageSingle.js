@@ -25,7 +25,7 @@ export default function ImageSingle() {
     }
     const getImage = async () => {
       try {
-        const res = await fetch(`https://my-unsplash-oulx.onrender.com/${id}`, {
+        const res = await fetch(`https://unsplash-demo-sandy.vercel.app/${id}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -53,7 +53,7 @@ export default function ImageSingle() {
 
   const deleteImage = async () => {
     try {
-      const res = await fetch(`https://my-unsplash-oulx.onrender.com/${id}`, {
+      const res = await fetch(`https://unsplash-demo-sandy.vercel.app/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

@@ -18,7 +18,7 @@ export default function Login(){
         e.preventDefault()
         setIsLoading(true);
         try{
-            const res = await fetch("https://my-unsplash-oulx.onrender.com/login",{
+            const res = await fetch("https://unsplash-demo-sandy.vercel.app/login",{
                 method: "POST",
                 headers:{
                     "Content-Type":"application/json",

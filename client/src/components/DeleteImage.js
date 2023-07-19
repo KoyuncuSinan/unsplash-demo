@@ -8,7 +8,7 @@ const DeleteImage = ({id}) => {
     const handleDeleteClick = async() => {
         setLoading(true);
         try{
-            const res = await fetch(`https://my-unsplash-oulx.onrender.com/${id}`,{
+            const res = await fetch(`https://unsplash-demo-sandy.vercel.app/${id}`,{
                 method: "DELETE",
             });
             if(!res.ok){

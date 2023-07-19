@@ -19,7 +19,7 @@ export default function Signup(){
         e.preventDefault()
         setIsLoading(true);
             try{
-                const res = await fetch("https://my-unsplash-oulx.onrender.com/signup",{
+                const res = await fetch("https://unsplash-demo-sandy.vercel.app/signup",{
                     method: "POST",
                     headers:{
                         "Content-Type": "application/json",

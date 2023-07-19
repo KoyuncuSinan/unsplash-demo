@@ -18,7 +18,7 @@ export default function Navbar(){
     useEffect(() => {
         const getImages = async () => {
             try{
-                const res = await fetch("https://my-unsplash-oulx.onrender.com",{
+                const res = await fetch("https://unsplash-demo-sandy.vercel.app",{
                     method: "GET",
                     headers:{
                         "Content-Type": "application/json",
