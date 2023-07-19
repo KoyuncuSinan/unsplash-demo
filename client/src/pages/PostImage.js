@@ -1,10 +1,12 @@
 import React, {useState,useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import jwt_decode from "jwt-decode";
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 export default function PostImage(){
     const [isLogin, setIsLogin] = useState(false);
-
+    const [isLoading, setIsLoading] = useState(false);
     const [label, setLabel] = useState("")
     const [imagePath, setImagePath] = useState("")
 
@@ -12,6 +14,7 @@ export default function PostImage(){
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         const token = localStorage.getItem("token")
         const userId = jwt_decode(token).id
         const formData = new FormData();
@@ -31,10 +34,9 @@ export default function PostImage(){
                 const errorData = await res.json()
                 alert(errorData.msg)
             }else{
-                console.log(res);
+               
                 if(res.status === 200 || res.status === 201){
                     const data = await res.json();
-                    console.log(data);
                     setLabel(data.label)
                     setImagePath("")
                     navigate("/");
@@ -43,8 +45,9 @@ export default function PostImage(){
 
         }
         }catch(err){
-           console.log(err);
            return err;
+        }finally{
+            setIsLoading(false);
         }
 
     };
@@ -83,6 +86,9 @@ export default function PostImage(){
                         ></input>
                     </div>
                     <button type="submit">Submit</button>
+                    {isLoading && <Box sx={{ display: "flex"}} className="loading-circle"> 
+            <CircularProgress />
+            </Box>}
                 </form>
             ) : <div className="signup-error">
                     <h2>Login Required</h2>

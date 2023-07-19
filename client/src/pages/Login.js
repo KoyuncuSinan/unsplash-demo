@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {useNavigate} from "react-router-dom";
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 export default function Login(){
     const [login, setLogin] = useState({
@@ -8,11 +10,13 @@ export default function Login(){
     })
 
     const [errorMessage, setErrorMessage] = useState(null)
+    const [isLoading, setIsLoading] = useState(false);
 
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        setIsLoading(true);
         try{
             const res = await fetch("https://my-unsplash-oulx.onrender.com/login",{
                 method: "POST",
@@ -28,8 +32,8 @@ export default function Login(){
                 const data = await res.json();
                 if(data){
                     localStorage.setItem("token", data.token);
-                    console.log(data);
                     setLogin(data)
+                    alert("Successfully logged in!")
                     navigate("/post");
                 }
 
@@ -38,8 +42,9 @@ export default function Login(){
 
 
         }catch(err){
-            console.log(err);
             return err;
+        }finally{
+            setIsLoading(false);
         }
     }
 
@@ -67,6 +72,9 @@ export default function Login(){
                 </input>
             </div>
             <button type="Submit">Login</button>
+            {isLoading && <Box sx={{ display: "flex"}} className="loading-circle"> 
+            <CircularProgress />
+            </Box>}
         </form>
     )
 }

@@ -26,11 +26,11 @@ export default function Navbar(){
                 });
                 const data = await res.json();
                 if(data){
-                    console.log(data)
+                  
                     setImages(data)
                 }
             } catch(err){
-                console.log(err);
+               
                 return err;
             }
         };
@@ -41,24 +41,31 @@ export default function Navbar(){
         localStorage.removeItem("token");
         setIsLogin(false);
         navigate("/");
-        console.log("Logged out");
+        
     }
 
     return(
+        <>
         <nav>
+        <div className="navContainer">
         <div className="title-input">
             <img src = {logo} alt="logo" className="logo" onClick={() => navigate("/")}/>
             <h3 onClick={() => navigate("/")}>My Unsplash</h3>
-            <SearchBar placeholder="Enter a label name" data= {images}/>
         </div>
             <a onClick={() => navigate("/post")} className= "add-image">Add Image</a>
-            {isLogin ? (
+            {isLogin ? (<div className="signup">
                 <a onClick={logout} className= "register" id="logout">Logout</a>
-            ): <div className="signup">
-                <a onClick={() => navigate("/signup")} className= "register">Signup</a>
-                <a onClick={() => navigate("/login")} className= "register">Login</a>
+                </div>): 
+                <div className="signup">
+                <a onClick={() => navigate("/signup")} className= "register" id="signup">Signup</a>
+                <a onClick={() => navigate("/login")} className= "register" id="login">Login</a>
             </div>}
+
+        </div>
         </nav>
+        <SearchBar placeholder="Enter a label name" data= {images}/>
+        </>
+
 
     )
 }

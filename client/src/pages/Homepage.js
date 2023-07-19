@@ -29,12 +29,12 @@ export default function Homepage() {
         } else {
           const data = await res.json();
           if (data) {
-            console.log(data);
+           
             setImages(data);
           }
         }
       } catch (err) {
-        console.log(err);
+        
         return err;
       }
     };
@@ -59,7 +59,7 @@ export default function Homepage() {
                 className="homeImage"
                 onClick={() => navigate(`/${image._id}`)}
               ></img>
-              <h2 className="label">{image.label}</h2>
+              <h2 className="label" onClick={() => navigate(`/${image._id}`)}>{image.label}</h2>
             </div>
           ))
       ) : (

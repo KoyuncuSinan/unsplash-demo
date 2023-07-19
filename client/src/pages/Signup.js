@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {useNavigate} from "react-router-dom";
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 
 export default function Signup(){
@@ -8,12 +10,14 @@ export default function Signup(){
         email: "",
         password: "",
     })
+    const [isLoading, setIsLoading] = useState(false);
     
     const [errorMessage, setErrorMessage] = useState(null)
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        setIsLoading(true);
             try{
                 const res = await fetch("https://my-unsplash-oulx.onrender.com/signup",{
                     method: "POST",
@@ -28,15 +32,18 @@ export default function Signup(){
                     setErrorMessage(errorData.msg)
                 }else{
                     const data = await res.json()
-                    console.log(data);
+                
                     setSignupForm(data);
+                    alert("Successfully registered!")
                     navigate("/login")
 
                 }
             } catch(err){
-                console.log(err)
+               
                 setErrorMessage("An error occurred while signing up.")
                 return err;
+            }finally{
+                setIsLoading(false);
             }
         }
 
@@ -62,6 +69,9 @@ export default function Signup(){
                 ></input>
             </div>
             <button type="Submit">Signup</button>
+            {isLoading && <Box sx={{ display: "flex"}} className="loading-circle"> 
+            <CircularProgress />
+            </Box>}
 
 
         </form>

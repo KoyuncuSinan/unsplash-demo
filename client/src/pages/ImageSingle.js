@@ -37,12 +37,12 @@ export default function ImageSingle() {
         } else {
           const data = await res.json();
           if (data) {
-            console.log(data);
+           
             setImagePage(data);
           }
         }
       } catch (err) {
-        console.log(err);
+        
         setErrorMessage("An error occurred while fetching the image");
       } finally {
         setIsLoading(false);
@@ -60,12 +60,10 @@ export default function ImageSingle() {
         },
       });
       if (res.ok) {
-        console.log("Image deleted successfully.");
         alert("Image deleted successfully.");
         navigate("/");
       }
     } catch (err) {
-      console.log(err);
       return err;
     }
   };

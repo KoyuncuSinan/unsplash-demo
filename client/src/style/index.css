@@ -5,54 +5,48 @@ body{
 }
 
 nav{
-    /* max-width: 90%;
-    min-height: 90%; */
-    position: fixed;
-    justify-content: space-evenly;
-    display: flex;
-    max-width: 100%;
-    max-height: 10%;
-    align-items: center;
+    position: sticky;
     top: 0;
-    margin: 0 auto;
-    left: 0;
     width: 100%;
+    margin: 0 auto;
     background-color: #fff;
     z-index: 900;
-    
-    
+}
+
+.navContainer{
+  width: 70%;
+  margin: 1rem auto;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
 }
 
 .title-input{
-    width: 45%; 
+    width:30%;
     display: flex;
     align-items: center;
-    margin: 1rem 10rem;
-}
-.title-input input{
-    width: 30%;
-    margin-left: 2rem;
-    margin-right: 1rem;
-    padding: 1rem;
-    border-radius: 10px;
-    border: 1px grey solid;
 }
 
 .logo{
-    width: 14%;
-    height: 8%;
+    width: 42%;
+    height: 24%;
 }
 
-.signup{
+.register{
     display: flex;
     /* margin: 0 8rem; */
     align-items: center;
+    font-weight: 700;
     /* margin-left: 4%; */
 }
 
-.signup a{
-    margin-left: 3rem;
+.signup{
+  width:15%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }
+
 
 a,.title-input h3, img:hover{
     cursor: pointer;
@@ -61,7 +55,7 @@ a,.title-input h3, img:hover{
 .add-image{
     border-radius: 10px;
     padding: 1rem;
-    max-width: 6%;
+    width:30%;
     background-color: rgb(59, 181, 59);
     color: white;
     font-weight: 700;
@@ -89,8 +83,8 @@ a,.title-input h3, img:hover{
     display: -ms-flexbox;  */
     display: flex;
     margin: 0 auto; /* gutter size offset */
-    width: 90%;
-    margin-top: 10rem
+    width: 70%;
+    margin-top: 5rem
   }
   .my-masonry-grid_column {
     padding-left: 30px; /* gutter size */
@@ -107,23 +101,30 @@ a,.title-input h3, img:hover{
   }
   .label{
     position: absolute;
-    bottom: 0;
-    left: 15rem;
+    margin: 0;
+    bottom: 10px; 
+    left: 50%;
+    transform: translateX(-50%);
     width: 80%;
-    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
     color: #fff;
-    font-size: 25px;
     font-weight: 400;
     text-align: center;
-    transform: translate(-50%, -50%);
     opacity: 0;
     visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
     cursor: pointer;
+    pointer-events: none;
+    z-index: 1;
 }
-.homeImage:hover + .label{
+.homeImage:hover + .label, .label:hover{
     visibility: visible;
     opacity: 0.9;
 }
+
 .homeImage:hover{
     filter: brightness(60%); 
 }
@@ -158,47 +159,44 @@ width: 80%;
 margin: 0 auto;
 }
 
-
-@media(max-width: 950px){
-  .title-input{
-    margin: 1rem 5rem;
-  }
-  .signup{
-    flex-direction: column;
-    margin-right: 6.2rem;
-    margin-top: 0.5rem;
-  }
-  
-  .register{
-    margin-bottom: 0.3rem;
-  }
+.loading-circle{
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-@media(max-width: 450px){
-  .title-input{
-    margin: 1rem 5rem;
-  }
+
+
+@media(max-width: 965px){
   .title-input h3{
     display: none;
   }
-  .title-input .logo{
-    width: 30%;
-    height: 15%;
+  .title-input{
+    width: 25%;
   }
 
   .add-image{
-    font-size: 12px;
-    padding: 1rem 1.2rem;
+    width: 25%;
   }
   .signup{
     flex-direction: column;
-    margin-right: 6.2rem;
-    margin-top: 0.3rem;
   }
-  .register{
-    margin-bottom: 0.3rem;
+  .logo{
+    width: 80%;
+    height: 60%;
   }
-  #logout{
-    margin-left: 2rem;
-    margin-right: 6rem;
-  }
+}
+@media(max-width: 900px){
+  .label{
+   
+   font-size: 20px;
+
+    color: #fff;
+    font-weight: 400;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+
+}
 }
